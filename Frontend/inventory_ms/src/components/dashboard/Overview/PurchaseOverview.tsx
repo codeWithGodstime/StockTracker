@@ -56,7 +56,7 @@ export const PurchaseOverviewLoader = () => {
 
 
 const PurchaseOverview = () => {
-    const { isLoading, isError, data, error } = useQuery({
+    const { isLoading, isError, error } = useQuery({
         queryKey: ["PurchaseOverview"],
         queryFn: () =>
             new Promise((resolve) =>

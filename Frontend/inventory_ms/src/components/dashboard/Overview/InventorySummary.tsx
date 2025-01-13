@@ -46,7 +46,7 @@ export const InventoryOverviewLoader = () => {
 
 
 const InventoryOverview = () => {
-    const { isLoading, isError, data, error } = useQuery({
+    const { isLoading, isError, error } = useQuery({
         queryKey: ["salesOverview"],
         queryFn: () =>
             new Promise((resolve) =>

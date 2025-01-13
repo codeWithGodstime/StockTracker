@@ -2,10 +2,10 @@ import { SalesAndPurchase } from "./SalesAndPurchase"
 import { OrderSummary } from "./OrderSummary"
 import {TopSellingStock} from "./TopSelling"
 import LowQuantiyStock from "./LowQuantityStock"
-import SalesOverview, { SalesOverviewLoader } from "./SalesOverview"
-import InventoryOverview, { InventoryOverviewLoader } from "./InventorySummary"
-import PurchaseOverview, { PurchaseOverviewLoader } from "./PurchaseOverview"
-import ProductOverview, { ProductOverviewLoader } from "./ProductSummary"
+import SalesOverview from "./SalesOverview"
+import InventoryOverview from "./InventorySummary"
+import PurchaseOverview from "./PurchaseOverview"
+import ProductOverview from "./ProductSummary"
 
 
 const Overview = () => {
