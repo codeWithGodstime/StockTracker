@@ -1,14 +1,12 @@
 import { Button } from "@/components/ui/button"
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 import {
   Tabs,
   TabsContent,
@@ -18,56 +16,116 @@ import {
 
 export function ProductDetail() {
   return (
-    <Tabs defaultValue="account" className="w-[400px]">
-      <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="password">Password</TabsTrigger>
+    <Tabs defaultValue="overview" className="bg-white">
+      <TabsList className="grid w-full grid-cols-4 py-3">
+        <TabsTrigger value="overview">Overview</TabsTrigger>
+        <TabsTrigger value="purchases">Purchases</TabsTrigger>
+        <TabsTrigger value="adjustments">Adjustments</TabsTrigger>
+        <TabsTrigger value="history">History</TabsTrigger>
       </TabsList>
-      <TabsContent value="account">
-        <Card>
-          <CardHeader>
-            <CardTitle>Account</CardTitle>
-            <CardDescription>
-              Make changes to your account here. Click save when you're done.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue="Pedro Duarte" />
+      <TabsContent value="overview" className="px-12 py-4 grid grid-cols-[2fr_1fr] gap-5">
+        <div className=" bg-white w-full space-y-12">
+          {/* primary details */}
+          <div className="">
+            <h3 className="font-bold text-gray-900 mb-5">Primary Details</h3>
+            <div className="grid grid-cols-1 gap-7">
+              <div className="flex justify-between ">
+                <h4 className="font-light">{""}Product name</h4>
+                <p>{""}Maggi</p>
+              </div>
+
+              <div className="flex justify-between ">
+                <h4 className="font-light">{""}Product ID</h4>
+                <p>{""}46000</p>
+              </div>
+
+              <div className="flex justify-between ">
+                <h4 className="font-light">{""}Product Category</h4>
+                <p>{""}Maggi</p>
+              </div>
+
+              <div className="flex justify-between ">
+                <h4 className="font-light">{""}Expiry Date</h4>
+                <p>{""}12/4/23</p>
+              </div>
+
+              <div className="flex justify-between ">
+                <h4 className="font-light">{""}Threshold Value</h4>
+                <p>{""}12</p>
+              </div>
             </div>
-            <div className="space-y-1">
-              <Label htmlFor="username">Username</Label>
-              <Input id="username" defaultValue="@peduarte" />
+          </div>
+
+          {/* supplier Details */}
+          <div>
+            <h3 className="font-bold text-gray-900 mb-5">Supplier Details</h3>
+            <div className="grid grid-cols-1 gap-7">
+              <div className="flex justify-between ">
+                <h4 className="font-light">{""}Supplier name</h4>
+                <p>{""}Ronald Martin</p>
+              </div>
+
+              <div className="flex justify-between ">
+                <h4 className="font-light">{""}Contact Number</h4>
+                <p>{""}9399992993</p>
+              </div>
             </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save changes</Button>
-          </CardFooter>
-        </Card>
+          </div>
+
+          {/* stock */}
+          <div className="">
+          <h3 className="font-bold text-gray-900 mb-5">Stock Locations</h3>
+            <Table>
+              <TableHeader className="bg-gray-100">
+                <TableRow>
+                  <TableHead>Store Name</TableHead>
+                  <TableHead className="text-right">Stock in hand</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-light">INV001</TableCell>
+                  <TableCell className="text-right font-light">Paid</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+
+        </div>
+
+        <div className="justify-self-center space-y-10">
+          <span className="p-2 rounded-md border border-dashed inline-block"><img src="/noodles-maggi.png" /></span>
+
+          <div className="grid grid-cols-1 gap-7">
+              <div className="flex justify-between ">
+                <h4 className="font-light">{""}Opening Stock</h4>
+                <p>{""}40</p>
+              </div>
+
+              <div className="flex justify-between ">
+                <h4 className="font-light">{""}Remaining Stock</h4>
+                <p>{""}34</p>
+              </div>
+
+              <div className="flex justify-between ">
+                <h4 className="font-light">{""}On the way</h4>
+                <p>{""}15</p>
+              </div>
+
+              <div className="flex justify-between ">
+                <h4 className="font-light">{""}Threshold Value</h4>
+                <p>{""}12</p>
+              </div>
+
+            </div>
+        </div>
       </TabsContent>
-      <TabsContent value="password">
-        <Card>
-          <CardHeader>
-            <CardTitle>Password</CardTitle>
-            <CardDescription>
-              Change your password here. After saving, you'll be logged out.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="current">Current password</Label>
-              <Input id="current" type="password" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="new">New password</Label>
-              <Input id="new" type="password" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save password</Button>
-          </CardFooter>
-        </Card>
+
+
+      <TabsContent value="purchases">
+        <div>
+
+        </div>
       </TabsContent>
     </Tabs>
   )
