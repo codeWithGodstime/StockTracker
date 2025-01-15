@@ -5,16 +5,8 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
-import { AddProductButton } from "./Form";
+import CardTable from "../CardTable";
+import AddProductForm from "./AddProductForm";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Separator } from "@radix-ui/react-separator";
 import { useQuery } from "@tanstack/react-query";
@@ -147,43 +139,7 @@ const Inventory = () => {
             </Card>
 
 
-            <Card>
-                <CardHeader className="grid grid-cols-2 gap-2 justify-between">
-                    <CardTitle className="inline">Products</CardTitle>
-
-                    <span className="flex justify-end space-x-3 gap-3">
-                        <AddProductButton />
-                        <Button className="inline">Filters</Button>
-                        <Button className="inline">Download all</Button>
-                    </span>
-                </CardHeader>
-                
-                <CardContent>
-                    <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead className="w-[100px]">Products</TableHead>
-                                <TableHead>Buying Price</TableHead>
-                                <TableHead>Quantity</TableHead>
-                                <TableHead className="text-right">Threshold Value</TableHead>
-                                <TableHead className="text-right">Expiry Date</TableHead>
-                                <TableHead className="text-right">Availability</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {productData.map((product) => (
-                                <TableRow key={product.product}>
-                                    <TableCell className="font-medium">{product.buying_price}</TableCell>
-                                    <TableCell>{product.quantity}</TableCell>
-                                    <TableCell>{product.threshhold_value}</TableCell>
-                                    <TableCell className="text-right">{product.expiry_date}</TableCell>
-                                    <TableCell className="text-right">{product.availability}</TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </CardContent>
-            </Card>
+            <CardTable table_title={"Products"} table_body={productData} table_heading={["Product", "Buying Price", "Quantity", "Threshold Value", "Expiry Date", "Availability"]} form={<AddProductForm />}/>
 
         </div>
     );

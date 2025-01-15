@@ -13,6 +13,7 @@ import Overview from "./components/dashboard/Overview/Overview";
 import Inventory from "./components/dashboard/Inventory/Inventory";
 import { ProductDetail } from "./components/dashboard/Inventory/ProductDetail";
 import Supplier from "./components/dashboard/Supplier/Supplier";
+import Order from "./components/dashboard/Order/Order";
 
 
 const queryClient = new QueryClient()
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "suppliers",
         element: <Supplier />
+      },
+      {
+        path: "orders",
+        element: <Order />
       }
     ]
   }
